@@ -4,8 +4,7 @@ const { userSchema, updateUserSchema, idSchema } = require('../utils/schemas/use
 const validateHandler = require('../middlewares/validationHandler.middleware');
 
 router.get('/', userController.get);
-router.post('/', validateHandler(userSchema), userController.signUp);
-// router.get('/:id', userController.get);
+router.post('/', validateHandler(userSchema, 'body'), userController.signUp);
 router.get('/:id', validateHandler(idSchema, 'params'), userController.get);
 router.delete('/:id', validateHandler(idSchema, 'params'), userController.delete);
 router.put('/:id', validateHandler(idSchema, 'params'), validateHandler(updateUserSchema), userController.update);

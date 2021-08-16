@@ -5,7 +5,7 @@ function validate(data, schema) {
   return error;
 }
 
-const validateHandler = (schema, check = 'body') => (req, res, next) => {
+const validateHandler = (schema, check) => (req, res, next) => {
   console.info('validateHandler called, check: ', check);
   const error = validate(req[check], schema);
 
