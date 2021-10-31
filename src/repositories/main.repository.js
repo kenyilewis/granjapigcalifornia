@@ -12,3 +12,13 @@ db.once('open', () => {
 db.on('error', console.error.bind(console, 'connection error:'));
 
 module.exports = db;
+
+// async function connectDB(cb) {
+//   try {
+//     const client = await mongoose.connect(uri, options);
+//     cb();
+//     client.
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }

@@ -32,9 +32,15 @@ const accessTokenSchema = Joi.object({
   accessToken: accessTokenValidation,
 });
 
+const loginSchema = Joi.object({
+  password: passwordValidation.required(),
+  email: emailValidation.required(),
+});
+
 module.exports = {
   userSchema,
   updateUserSchema,
   idSchema,
   accessTokenSchema,
+  loginSchema,
 };

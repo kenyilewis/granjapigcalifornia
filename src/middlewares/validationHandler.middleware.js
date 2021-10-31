@@ -1,6 +1,6 @@
 function validate(data, schema) {
   const { error } = schema.validate(data);
-  console.info('Validate function called:', error);
+  console.info('Error in validate function:', error);
 
   return error;
 }

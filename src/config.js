@@ -14,7 +14,7 @@ const config = {
 };
 
 const tokenConfig = {
-  privateKey: process.env.SECRET,
+  privateKey: process.env.SECRET || 'secretTest',
   ttl: process.env.TTL,
 };
 

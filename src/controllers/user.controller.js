@@ -24,7 +24,7 @@ class userController {
       const { status } = error;
       if (status === undefined) return res.status(500).send({ status: 500, message: 'Error when creating user', error });
 
-      return res.status(status).send(error);
+      return res.status(status).send({ message: 'Error when creating user', error });
     }
   }
 
@@ -49,7 +49,7 @@ class userController {
 
       if (status === undefined) return res.status(500).send({ status: 500, message: 'Error when get user(s)', error: message });
 
-      return res.status(status).send(error);
+      return res.status(status).send({ message: 'Error when get user(s)', error });
     }
   }
 
@@ -62,14 +62,14 @@ class userController {
     try {
       const user = await userService.update(id, { email, name, level });
 
-      return res.status(200).send({ message: ` ${user.n} doc matched, ${user.nModified} user modified` });
+      return res.status(200).send({ message: `${user.nModified} user modified` });
     } catch (error) {
       console.error('Error in update controller, id: %s Error: %s', id, error);
       const { status } = error;
       const { message } = error;
 
       if (status === undefined) return res.status(500).send({ status: 500, message: 'Error when update user', error: message });
-      return res.status(status).send(error);
+      return res.status(status).send({ message: 'Error when update user', error });
     }
   }
 
@@ -84,10 +84,11 @@ class userController {
     } catch (error) {
       console.error('Error in delete controller', error);
       const { status } = error;
+      const { message } = error;
 
-      if (status === undefined) return res.status(500).send(error);
+      if (status === undefined) return res.status(500).send({ status: 500, message: 'Error when update user', error: message });
 
-      return res.status(status).send(error);
+      return res.status(status).send({ message: 'Error when update user', error });
     }
   }
 }
